@@ -18,9 +18,9 @@ namespace GlApi.Controllers.Builder
         }
 
         [HttpGet(Name = "NewBuilder")]
-        public ConceptDbResponse Get(string libName)
+        public ConceptDbResponse Get(string secId)
         {
-            return _cptDb.NewBuilder(libName);
+            return _cptDb.NewBuilder(secId);
         }
     }
 }

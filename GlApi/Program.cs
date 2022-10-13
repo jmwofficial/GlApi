@@ -26,11 +26,13 @@ var app = builder.Build();
 IConceptDb db = app.Services.GetService<IConceptDb>() ?? throw new InvalidOperationException("ConceptDbError: Could Not Initialize.");
 
 // Configure the HTTP request pipeline.
+app.UseSwagger();
+app.UseSwaggerUI();/*
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+}*/
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

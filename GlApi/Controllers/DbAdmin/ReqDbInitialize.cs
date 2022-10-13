@@ -6,19 +6,19 @@ namespace GlApi.Controllers.DbAdmin
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DbAdminEnsureDeleted : ControllerBase
+    public class ReqDbInitialize : ControllerBase
     {
         private readonly ILogger<BuilderNew> _logger;
         private readonly IConceptDb _cptDb;
-        public DbAdminEnsureDeleted(ILogger<BuilderNew> logger, IConceptDb cptDb)
+        public ReqDbInitialize(ILogger<BuilderNew> logger, IConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "EnsureDeleted")]
-        public ConceptDbResponse EnsureDeleted(string secId)
+        [HttpGet(Name = "ReqDbInitialize")]
+        public async Task<ConceptDbResponse> Get(string secId)
         {
-            return _cptDb.EnsureDeleted(secId);
+            return await _cptDb.RequestDbInitializeAsync(secId);
         }
     }
 }

@@ -2,9 +2,6 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 
-ARG connString
-ENV connString=$connString
-
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443

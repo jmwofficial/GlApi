@@ -6,19 +6,19 @@ namespace GlApi.Controllers.DbAdmin
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DbAdminFlattenDb : ControllerBase
+    public class DbInitialize : ControllerBase
     {
         private readonly ILogger<BuilderNew> _logger;
         private readonly IConceptDb _cptDb;
-        public DbAdminFlattenDb(ILogger<BuilderNew> logger, IConceptDb cptDb)
+        public DbInitialize(ILogger<BuilderNew> logger, IConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "FlattenDB")]
-        public ConceptDbResponse FlattenDb(string secId)
+        [HttpGet(Name = "DbInitialize")]
+        public async Task<ConceptDbResponse> Get(string confirmId)
         {
-            return _cptDb.FlattenDb(secId);
+            return await _cptDb.DbInitializeAsync(confirmId);
         }
     }
 }

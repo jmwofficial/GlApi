@@ -30,10 +30,4 @@
     </Reference>
   </ItemGroup>
 
-  <!--<ItemGroup>
-    <Reference Include="ConceptDbLib">
-      <HintPath>..\..\ConceptDbLib\ConceptDbLib\bin\Debug\net6.0\ConceptDbLib.dll</HintPath>
-    </Reference>
-  </ItemGroup>-->
-
 </Project>
