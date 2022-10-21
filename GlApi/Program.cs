@@ -19,11 +19,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IConceptDb, ConceptDb>();
+builder.Services.AddSingleton<ConceptDb>();
 
 var app = builder.Build();
 
-IConceptDb db = app.Services.GetService<IConceptDb>() ?? throw new InvalidOperationException("ConceptDbError: Could Not Initialize.");
+ConceptDb db = app.Services.GetService<ConceptDb>() ?? throw new InvalidOperationException("ConceptDbError: Could Not Initialize.");
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();

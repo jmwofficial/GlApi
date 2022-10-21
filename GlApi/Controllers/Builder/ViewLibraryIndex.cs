@@ -1,25 +1,25 @@
 ﻿using ConceptDbLib;
 using CptClientShared;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 
-namespace GlApi.Controllers.DbAdmin
+namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DbInitialize : ControllerBase
+    public class ViewLibraryIndex : ControllerBase
     {
-        private readonly ILogger<DbInitialize> _logger;
+        private readonly ILogger<ViewLibraryIndex> _logger;
         private readonly ConceptDb _cptDb;
-        public DbInitialize(ILogger<DbInitialize> logger, ConceptDb cptDb)
+        public ViewLibraryIndex(ILogger<ViewLibraryIndex> logger, ConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "DbInitialize")]
-        public async Task<ConceptDbResponse> Get(string confirmId)
+        [HttpGet(Name = "ViewLibraryIndex")]
+        public async Task<ConceptDbResponse> Get(string builderId)
         {
-            ConceptDbResponse response = await _cptDb.DbInitializeAsync(confirmId);
+            ConceptDbResponse response = await _cptDb.ViewLibraryIndexAsync(builderId);
+
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;

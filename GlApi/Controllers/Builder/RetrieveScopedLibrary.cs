@@ -6,20 +6,19 @@ namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NewObject : ControllerBase
+    public class RetrieveScopedLibrary : ControllerBase
     {
-        private readonly ILogger<NewObject> _logger;
+        private readonly ILogger<RetrieveScopedLibrary> _logger;
         private readonly ConceptDb _cptDb;
-        public NewObject(ILogger<NewObject> logger, ConceptDb cptDb)
+        public RetrieveScopedLibrary(ILogger<RetrieveScopedLibrary> logger, ConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "NewObject")]
-        public async Task<ConceptDbResponse> Get(string builderId, string libName, string objName)
+        [HttpGet(Name = "RetrieveScopedLibrary")]
+        public async Task<ConceptDbResponse> Get(string builderId, string libraryName)
         {
-
-            ConceptDbResponse response = await _cptDb.NewObjectAsync(builderId, libName, objName);
+            ConceptDbResponse response = await _cptDb.RetrieveScopedLibraryAsync(builderId, libraryName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;

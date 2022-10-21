@@ -6,20 +6,20 @@ namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NewObject : ControllerBase
+    public class RenameObject : ControllerBase
     {
-        private readonly ILogger<NewObject> _logger;
+        private readonly ILogger<RenameObject> _logger;
         private readonly ConceptDb _cptDb;
-        public NewObject(ILogger<NewObject> logger, ConceptDb cptDb)
+        public RenameObject(ILogger<RenameObject> logger, ConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "NewObject")]
-        public async Task<ConceptDbResponse> Get(string builderId, string libName, string objName)
+        [HttpGet(Name = "RenameObject")]
+        public async Task<ConceptDbResponse> Get(string builderId, string libName, string oldName, string newName)
         {
 
-            ConceptDbResponse response = await _cptDb.NewObjectAsync(builderId, libName, objName);
+            ConceptDbResponse response = await _cptDb.RenameObjectAsync(builderId, libName, oldName, newName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;

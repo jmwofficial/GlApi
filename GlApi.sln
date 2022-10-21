@@ -5,6 +5,10 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlApi", "GlApi\GlApi.csproj", "{B3A0194E-06AA-42B6-8215-9E1DC9D329BE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptDbLib", "..\ConceptDbLib\ConceptDbLib\ConceptDbLib.csproj", "{9A71A44D-EC30-4337-830D-750746BE86B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CptClientShared", "..\CptClientShared\CptClientShared\CptClientShared.csproj", "{9F5684E0-28EE-4597-B6CC-A058A97F981A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B3A0194E-06AA-42B6-8215-9E1DC9D329BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3A0194E-06AA-42B6-8215-9E1DC9D329BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3A0194E-06AA-42B6-8215-9E1DC9D329BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A71A44D-EC30-4337-830D-750746BE86B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A71A44D-EC30-4337-830D-750746BE86B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A71A44D-EC30-4337-830D-750746BE86B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A71A44D-EC30-4337-830D-750746BE86B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5684E0-28EE-4597-B6CC-A058A97F981A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5684E0-28EE-4597-B6CC-A058A97F981A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5684E0-28EE-4597-B6CC-A058A97F981A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5684E0-28EE-4597-B6CC-A058A97F981A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
