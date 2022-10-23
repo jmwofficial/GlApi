@@ -16,10 +16,9 @@ namespace GlApi.Controllers.Builder
             _cptDb = cptDb;
         }
         [HttpGet(Name = "NewObject")]
-        public async Task<ConceptDbResponse> Get(string builderId, string libName, string objName)
+        public async Task<ConceptDbResponse> Get(string builderId, string libName, string objName, string? parentObjName, string? objTypeNames)
         {
-
-            ConceptDbResponse response = await _cptDb.NewObjectAsync(builderId, libName, objName);
+            ConceptDbResponse response = await _cptDb.NewObjectAsync(builderId, libName, objName, parentObjName ?? string.Empty, objTypeNames ?? string.Empty);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;
