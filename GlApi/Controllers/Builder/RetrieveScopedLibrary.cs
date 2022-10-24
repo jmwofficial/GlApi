@@ -10,6 +10,7 @@ namespace GlApi.Controllers.Builder
     {
         private readonly ILogger<RetrieveScopedLibrary> _logger;
         private readonly ConceptDb _cptDb;
+        private static bool _verbose = false;
         public RetrieveScopedLibrary(ILogger<RetrieveScopedLibrary> logger, ConceptDb cptDb)
         {
             _logger = logger;
@@ -20,7 +21,10 @@ namespace GlApi.Controllers.Builder
         {
             ConceptDbResponse response = await _cptDb.RetrieveScopedLibraryAsync(builderId, libraryName);
             _logger.LogWarning(ApiMessaging.LogMessage);
-            _logger.LogWarning(ApiMessaging.ResponseToString(response));
+            if (_verbose)
+            {
+                _logger.LogWarning(ApiMessaging.ResponseToString(response));
+            }
             return response;
         }
     }
