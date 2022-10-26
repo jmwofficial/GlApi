@@ -18,6 +18,7 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "NewLibrary")]
         public async Task<ConceptDbResponse> Get(string builderId, string libraryName)
         {
+            libraryName = libraryName.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.CreateLibraryAsync(builderId, libraryName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));

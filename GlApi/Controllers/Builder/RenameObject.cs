@@ -18,7 +18,9 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "RenameObject")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string oldName, string newName)
         {
-
+            libName = libName.Replace("_", String.Empty);
+            oldName = oldName.Replace("_", String.Empty);
+            newName = newName.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.RenameObjectAsync(builderId, libName, oldName, newName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));

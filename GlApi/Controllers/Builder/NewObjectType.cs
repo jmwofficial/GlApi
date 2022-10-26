@@ -18,6 +18,9 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "NewObjectType")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string parentType, string newType)
         {
+            libName = libName.Replace("_", String.Empty);
+            parentType = parentType.Replace("_", String.Empty);
+            newType = newType.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.NewObjectTypeAsync(builderId, libName, parentType, newType);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));

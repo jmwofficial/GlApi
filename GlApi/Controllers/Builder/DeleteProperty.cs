@@ -18,6 +18,8 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "DeleteProperty")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string propName)
         {
+            libName = libName.Replace("_", String.Empty);
+            propName = propName.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.DeletePropertyAsync(builderId, libName, propName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));

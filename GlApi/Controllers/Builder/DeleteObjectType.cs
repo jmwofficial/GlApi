@@ -18,6 +18,8 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "DeleteObjectType")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string objTypeName)
         {
+            libName = libName.Replace("_", String.Empty);
+            objTypeName = objTypeName.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.DeleteObjectTypeAsync(builderId, libName, objTypeName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));

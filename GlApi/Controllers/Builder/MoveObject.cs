@@ -19,6 +19,12 @@ namespace GlApi.Controllers.Builder
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string? parentName, string childName)
         {
 
+            libName = libName.Replace("_", String.Empty);
+            childName = childName.Replace("_", String.Empty);
+            if(parentName != null)
+            {
+                parentName = parentName.Replace("_", String.Empty);
+            }
             ConceptDbResponse response = await _cptDb.MoveObjectAsync(builderId, libName, parentName, childName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));

@@ -19,6 +19,7 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "RetrieveScopedLibrary")]
         public async Task<ConceptDbResponse> Get(string builderId, string libraryName)
         {
+            libraryName = libraryName.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.RetrieveScopedLibraryAsync(builderId, libraryName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             if (_verbose)

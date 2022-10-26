@@ -18,6 +18,8 @@ namespace GlApi.Controllers.Builder
         [HttpGet(Name = "NewProperty")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string propName)
         {
+            libName = libName.Replace("_", String.Empty);
+            propName = propName.Replace("_", String.Empty);
             ConceptDbResponse response = await _cptDb.NewPropertyAsync(builderId, libName, propName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
