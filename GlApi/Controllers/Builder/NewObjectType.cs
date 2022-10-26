@@ -6,19 +6,19 @@ namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddObjectTypeToLibrary : ControllerBase
+    public class NewObjectType : ControllerBase
     {
-        private readonly ILogger<AddObjectTypeToLibrary> _logger;
+        private readonly ILogger<NewObjectType> _logger;
         private readonly ConceptDb _cptDb;
-        public AddObjectTypeToLibrary(ILogger<AddObjectTypeToLibrary> logger, ConceptDb cptDb)
+        public NewObjectType(ILogger<NewObjectType> logger, ConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "AddObjectTypeToLibrary")]
+        [HttpGet(Name = "NewObjectType")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string parentType, string newType)
         {
-            ConceptDbResponse response = await _cptDb.AddObjectTypeToLibraryAsync(builderId, libName, parentType, newType);
+            ConceptDbResponse response = await _cptDb.NewObjectTypeAsync(builderId, libName, parentType, newType);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;

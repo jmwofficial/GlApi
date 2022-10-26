@@ -6,19 +6,19 @@ namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class NewLibrary : ControllerBase
+    public class AssignProperty : ControllerBase
     {
-        private readonly ILogger<NewLibrary> _logger;
+        private readonly ILogger<AssignProperty> _logger;
         private readonly ConceptDb _cptDb;
-        public NewLibrary(ILogger<NewLibrary> logger, ConceptDb cptDb)
+        public AssignProperty(ILogger<AssignProperty> logger, ConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "NewLibrary")]
-        public async Task<ConceptDbResponse> Get(string builderId, string libraryName)
+        [HttpGet(Name = "AssignProperty")]
+        public async Task<ConceptDbResponse> Get(string builderId, string libName, string propName, string objName)
         {
-            ConceptDbResponse response = await _cptDb.CreateLibraryAsync(builderId, libraryName);
+            ConceptDbResponse response = await _cptDb.AssignPropertyAsync(builderId, libName, propName, objName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;

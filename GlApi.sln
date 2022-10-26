@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlApi", "GlApi\GlApi.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConceptDbLib", "..\ConceptDbLib\ConceptDbLib\ConceptDbLib.csproj", "{9A71A44D-EC30-4337-830D-750746BE86B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CptClientShared", "..\CptClientShared\CptClientShared\CptClientShared.csproj", "{9F5684E0-28EE-4597-B6CC-A058A97F981A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CptClientShared", "..\CptClientShared\CptClientShared\CptClientShared.csproj", "{9F5684E0-28EE-4597-B6CC-A058A97F981A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

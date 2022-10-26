@@ -6,19 +6,19 @@ namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RemoveObjectFromLibrary : ControllerBase
+    public class DeleteObject : ControllerBase
     {
-        private readonly ILogger<RemoveObjectFromLibrary> _logger;
+        private readonly ILogger<DeleteObject> _logger;
         private readonly ConceptDb _cptDb;
-        public RemoveObjectFromLibrary(ILogger<RemoveObjectFromLibrary> logger, ConceptDb cptDb)
+        public DeleteObject(ILogger<DeleteObject> logger, ConceptDb cptDb)
         {
             _logger = logger;
             _cptDb = cptDb;
         }
-        [HttpGet(Name = "RemoveObjectFromLibrary")]
+        [HttpGet(Name = "DeleteObject")]
         public async Task<ConceptDbResponse> Get(string builderId, string libName, string objName)
         {
-            ConceptDbResponse response = await _cptDb.RemoveObjectFromLibraryAsync(builderId, libName, objName);
+            ConceptDbResponse response = await _cptDb.DeleteObjectAsync(builderId, libName, objName);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;

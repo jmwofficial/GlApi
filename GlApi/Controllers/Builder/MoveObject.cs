@@ -16,7 +16,7 @@ namespace GlApi.Controllers.Builder
             _cptDb = cptDb;
         }
         [HttpGet(Name = "MoveObject")]
-        public async Task<ConceptDbResponse> Get(string builderId, string libName, string parentName, string childName)
+        public async Task<ConceptDbResponse> Get(string builderId, string libName, string? parentName, string childName)
         {
 
             ConceptDbResponse response = await _cptDb.MoveObjectAsync(builderId, libName, parentName, childName);
