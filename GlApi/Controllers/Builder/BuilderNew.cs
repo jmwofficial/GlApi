@@ -1,6 +1,7 @@
 ﻿using ConceptDbLib;
 using CptClientShared;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace GlApi.Controllers.Builder
 {
@@ -19,9 +20,11 @@ namespace GlApi.Controllers.Builder
         }
 
         [HttpGet(Name = "NewBuilder")]
-        public async Task<ConceptDbResponse> Get(string secId)
+        public async Task<ConceptDbResponse> Get(string username, string password)
         {
-            ConceptDbResponse response = await _cptDb.NewBuilderAsync(secId);
+            username = WebUtility.UrlDecode(username);
+            password = WebUtility.UrlDecode(password);
+            ConceptDbResponse response = await _cptDb.NewBuilderAsync(username, password);
             _logger.LogWarning(ApiMessaging.LogMessage);
             _logger.LogWarning(ApiMessaging.ResponseToString(response));
             return response;
