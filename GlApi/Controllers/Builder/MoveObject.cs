@@ -6,7 +6,7 @@ namespace GlApi.Controllers.Builder
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MoveObject : ControllerBase
+    public class MoveObject : ControllerBase 
     {
         private readonly ILogger<MoveObject> _logger;
         private readonly ConceptDb _cptDb;
